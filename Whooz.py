@@ -1,4 +1,5 @@
 class NightClub:
+
     def __init__(self, input=None, wjEntranceQueue=None):
         self.input = input
         if wjEntranceQueue is None:
@@ -15,12 +16,11 @@ class NightClub:
         if age < 18:
             print(str(self.input[x]) + " is under 18 and is being kicked out of the entrance queue!\n")
         elif age == 90:
-            print(str(self.input[x]) + " is 90 and cannot be helped onto the entrance queue!\n")
+            print(str(self.input[x]) + " is 90 and cannot be helped onto the entrance queue beca!\n")
         else:
             self.wjEntranceQueue.append(self.input[x])
-            print("Allowed to enter: " + str(self.wjEntranceQueue) + "\n")
+            print("Individuals who are allowed to enter: " + str(self.wjEntranceQueue) + "\n")
     # --END Validate Age
-
 
     # --START bubble sorting -- Descending to age
     def sorting(self):
@@ -60,21 +60,13 @@ class NightClub:
 
 
 nc = NightClub(input)
-
 nc.input = (
-["A19", "B28", "C23", "D4", "E78", "F90", "G32", "H54", "I32", "J12", "J67", "L90", "M87", "N6", "O36", "P12",
- "Q24"])
-
+    ["A19", "B28", "C23", "D4", "E78", "F90", "G32", "H54", "I32", "J12", "J67", "L90", "M87", "N6", "O36", "P12",
+     "Q24"])
 length = len(nc.input)
-
-print(nc.input)
-
+print("Input" + nc.input)
 nc.validateAge()
-
 print(nc.wjEntranceQueue)
-
 nc.sorting()
-
 liar_index = nc.find_index(nc.wjEntranceQueue, nc.liar)
-
 nc.findLiarX()
