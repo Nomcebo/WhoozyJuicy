@@ -23,7 +23,7 @@ class NightClub:
     # --END Validate Age
 
     # --START bubble sorting -- Descending to age
-    def sorting(self):
+    def bubbleSorting(self):
         isSorted = False
         length = len(nc.wjEntranceQueue) - 1
         # if two ages are exactly the same example G32 and I32, G32 must be first
@@ -67,6 +67,6 @@ length = len(nc.input)
 print("Input" + nc.input)
 nc.validateAge()
 print(nc.wjEntranceQueue)
-nc.sorting()
+nc.bubbleSorting()
 liar_index = nc.find_index(nc.wjEntranceQueue, nc.liar)
 nc.findLiarX()
