@@ -1,23 +1,23 @@
-class Person:
-    def __init__(self, wjPatrons=None, wjEntranceQueue=None):
-        self.wjPatrons = wjPatrons
+class NightClub:
+    def __init__(self, input=None, wjEntranceQueue=None):
+        self.input = input
         if wjEntranceQueue is None:
             wjEntranceQueue = []
         self.wjEntranceQueue = wjEntranceQueue
-        self.w = "Q24"
+        self.liar = "Q24"
 
 
     # --START Validate Age
     # Check if age is under 18 or if = to 90 not if 90 and above just if = 90-- as per requirements in entry rule
     def validateAge(self):
      for x in range(0, length):
-        age = int(self.wjPatrons[x][1:])
+        age = int(self.input[x][1:])
         if age < 18:
-            print(str(self.wjPatrons[x]) + " is under 18 and is being kicked out of the entrance queue!\n")
+            print(str(self.input[x]) + " is under 18 and is being kicked out of the entrance queue!\n")
         elif age == 90:
-            print(str(self.wjPatrons[x]) + " is 90 and cannot be helped onto the entrance queue!\n")
+            print(str(self.input[x]) + " is 90 and cannot be helped onto the entrance queue!\n")
         else:
-            self.wjEntranceQueue.append(self.wjPatrons[x])
+            self.wjEntranceQueue.append(self.input[x])
             print("Allowed to enter: " + str(self.wjEntranceQueue) + "\n")
     # --END Validate Age
 
@@ -25,11 +25,11 @@ class Person:
     # --START bubble sorting -- Descending to age
     def sorting(self):
         isSorted = False
-        length = len(p.wjEntranceQueue) - 1
+        length = len(nc.wjEntranceQueue) - 1
         # if two ages are exactly the same example G32 and I32, G32 must be first
 
         # Asuming letter depicts order you arrived sort alphabetically first
-        p.wjEntranceQueue.sort()
+        nc.wjEntranceQueue.sort()
         # then sorting by age descending [1:] -- bubble sorting
         while not isSorted:
             isSorted = True
@@ -41,7 +41,7 @@ class Person:
                     self.wjEntranceQueue[x] = temp
         # --END bubble sorting
 
-        print("Order to enter: " + str(p.wjEntranceQueue)+ "\n")
+        print("Order to enter: " + str(nc.wjEntranceQueue)+ "\n")
 
     # --START find liar x age
     def find_index(self, array, find):
@@ -49,7 +49,7 @@ class Person:
             if array[i] == find:
                 return i
 
-    def liar(self):
+    def findLiarX(self):
     # check that index is not 1 or less to avoid get index out of bound when -2
         if liar_index >= 1:
             currentAge = int(self.wjEntranceQueue[liar_index][1:])
@@ -59,22 +59,22 @@ class Person:
     # --END find liar x age
 
 
-p = Person()
+nc = NightClub(input)
 
-p.wjPatrons = (
+nc.input = (
 ["A19", "B28", "C23", "D4", "E78", "F90", "G32", "H54", "I32", "J12", "J67", "L90", "M87", "N6", "O36", "P12",
  "Q24"])
 
-length = len(p.wjPatrons)
+length = len(nc.input)
 
-print(p.wjPatrons)
+print(nc.input)
 
-p.validateAge()
+nc.validateAge()
 
-print(p.wjEntranceQueue)
+print(nc.wjEntranceQueue)
 
-p.sorting()
+nc.sorting()
 
-liar_index = p.find_index(p.wjEntranceQueue, p.w)
+liar_index = nc.find_index(nc.wjEntranceQueue, nc.liar)
 
-p.liar()
+nc.findLiarX()
